@@ -1,7 +1,10 @@
 django-icecat
 =============
-
 Django Icecat integration
+
+Documentation
+=============
+Be sure to checkout the official [IceCat documentation](https://nl.icecat.biz/forum.cgi?post=3331) before you start with importing any of the data.
 
 Installation
 ============
@@ -38,7 +41,7 @@ $ ./application/manage.py import_categories
 $ ./application/manage.py import_suppliers
 $ ./application/manage.py import_products [path to index or daily delta]
 ```
-If you want to import all the products, it is advised to first import the categories and suppliers
+If you want to import all the products, it is advised to first import the categories and suppliers. Also: be sure to save up on Starbucks coupons, as a total product import can take quite a while.
 
 TODO
 ====
