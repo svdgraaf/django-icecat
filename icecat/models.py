@@ -1,11 +1,14 @@
 from django.db import models
 
+
 class Product(models.Model):
     model_name = models.CharField(max_length=255)
-    date_added = models.DateTimeField()
-    updated = models.DateTimeField()
+    part = models.CharField(max_length=255)
+    created_at = models.DateTimeField()
+    updated_at = models.DateTimeField()
+    thumbnail = models.URLField(max_length=1024, default='')
     supplier = models.ForeignKey('Supplier')
-    # Catid = 
+    category = models.ForeignKey('Category')
 
 
 class Supplier(models.Model):

@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand
 from icecat.models import *
 from icecat import settings
+from datetime import datetime
 import requests
 from optparse import make_option
 
@@ -12,7 +13,6 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         # TODO: make this configurable?
         filename = args[0]
-        print filename
 
         with open(filename, "r") as f:
             # use cElement, it's faaaaaaaaast
@@ -27,12 +27,22 @@ class Command(BaseCommand):
 
             # loop through suppliers
             for event, elem in context:
-                if event == "end" and elem.tag == "Supplier":
+                if event == "end" and elem.tag == "file":
                     values = dict(elem.items())
 
-                    # get or update the supplier
-                    supplier, created = Supplier.objects.get_or_create(name=values['Name'], pk=values['ID'])
-                    if created:
-                        print supplier.name + ' added'
+                    supplier, created = Supplier.objects.get_or_create(pk=values['Supplier_id'])
+                    category, created = Category.objects.get_or_create(pk=values['Catid'])
+
+                    product = Product()
+                    product.pk = values['Product_ID']
+                    product.supplier = supplier
+                    product.category = category
+                    product.model_name = values['Model_Name']
+                    product.part = values['Prod_ID']
+                    product.created_at = datetime.strptime(values['Date_Added'], '%Y%m%d%H%M%S')
+                    product.updated_at = datetime.strptime(values['Updated'], '%Y%m%d%H%M%S')
+                    product.thumbnail = values['HighPic']
+                    product.save()
+
+                    print product.model_name, product.part
                     root.clear()
-                    
