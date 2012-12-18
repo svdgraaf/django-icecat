@@ -7,6 +7,7 @@ class Product(models.Model):
     created_at = models.DateTimeField()
     updated_at = models.DateTimeField()
     thumbnail = models.URLField(max_length=1024, default='')
+    on_market = models.BooleanField(default=False)
     supplier = models.ForeignKey('Supplier')
     category = models.ForeignKey('Category')
 

@@ -42,6 +42,8 @@ class Command(BaseCommand):
                     product.created_at = datetime.strptime(values['Date_Added'], '%Y%m%d%H%M%S')
                     product.updated_at = datetime.strptime(values['Updated'], '%Y%m%d%H%M%S')
                     product.thumbnail = values['HighPic']
+                    if values['On_Market'] == '1':
+                        product.on_market = True
                     product.save()
 
                     print product.model_name, product.part
