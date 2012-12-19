@@ -10,6 +10,10 @@ Installation
 ============
 Install the package, and add it to your applications:
 
+```bash
+$ pip install django-icecat
+```
+
 ```python
 INSTALLED_APPS = (
     ...

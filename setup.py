@@ -13,7 +13,7 @@ except:
 
 setup(
     name = 'django-icecat',
-    version = '0.1.0',
+    version = '0.1.1',
     description='Django models and tools for easy icecat importing',
     long_description=README,
     author = 'Sander van de Graaf',
