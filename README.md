@@ -26,7 +26,7 @@ ICECAT_API_USERNAME = 'xyz'
 ICECAT_API_PASSWORD = 'foobar'
 
 # Optional:
-ICECAT_API_LANGUAGE = 1  # The language you want to import, defaults to 1 (EN), NL = 2, See LanguageList.xml for other languages
+ICECAT_API_LANGUAGE = 1  # The language you want to import, defaults to 1 (EN), NL = 2, See [LanguageList.xml](https://data.icecat.biz/export/level4/refs/LanguageList.xml.gz) for other languages
 ICECAT_TMP_PATH = '/tmp'  # The path where the xml files will be stored for faster access. 
 ```
 
@@ -49,4 +49,4 @@ Lots :)
 
 Requirements
 ============
-South, lxml, ElementTree
+South, lxml, ElementTree, Requests
